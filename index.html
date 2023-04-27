@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>To-Do</title>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <script
+      src="https://kit.fontawesome.com/7d62d43862.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body id="body">
+    <div class="wrapper" id="app" v-cloak>
+      <div class="header-area">
+        <h1 :class="{dark: nightMode}">to-do</h1>
+        <i
+          @click="changeNightMode(index)"
+          :class="['fa-regular', {'fa-moon': !nightMode}, {'fa-sun': nightMode}, {'icon-dark': nightMode}]"
+        ></i>
+      </div>
+      <form @submit.prevent="addTask" :class="{'dark': nightMode}">
+        <input type="text" v-model="newTask" placeholder="Enter task here" />
+        <button type="submit">Add</button>
+      </form>
+      <div class="sort-area">
+        <p class="sort-by" :class="{'sort-by-dark': nightMode}">Sort by</p>
+        <div class="sort" :class="{'sort-dark': nightMode}">
+          <button
+            class="sort-date"
+            :class="{'sort-date-dark': nightMode}"
+            @click="sortByDate"
+          >
+            Date
+          </button>
+          <button
+            class="sort-done"
+            :class="{'sort-done-dark': nightMode}"
+            @click="sortByDone"
+          >
+            Done
+          </button>
+          <button
+            class="sort-pending"
+            :class="{'sort-pending-dark': nightMode}"
+            @click="sortByPending"
+          >
+            Pending
+          </button>
+        </div>
+      </div>
+      <ul>
+        <li
+          :class="{'dark': nightMode}"
+          v-for="(task, index) in tasks"
+          :key="index"
+        >
+          <div class="wrapper">
+            <div class="info-bar">
+              <p class="left date" :class="{'date-time-dark': nightMode}">
+                {{ task[1] }}
+              </p>
+              <p class="left date time" :class="{'date-time-dark': nightMode}">
+                {{ task[2] }}
+              </p>
+              <p
+                @click="changeStatus(index)"
+                :class="['right status pending', {done:task[3]=='done'}]"
+              >
+                {{task[3]}}
+              </p>
+            </div>
+            <div
+              :class="['details', {cut:task[3]=='done'}, {'details-dark': nightMode}, {'details-dark-cut': nightMode && task[3]=='done'}]"
+            >
+              {{ task[0] }}
+            </div>
+          </div>
+          <button
+            @click="removeTask(index)"
+            :class="{'button-dark': nightMode}"
+          >
+            X
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
