@@ -1,12 +1,12 @@
-# Simple To-Do App
+# Simple To-Do App 📝
 
 This is a simple, client-side to-do list application built using Vue 3.
 
 ### Features
 
-* **Add Tasks:** Quickly add new to-do items to your list.
-* **Mark as Complete:** Toggle the status of tasks as complete or incomplete.
-* **Delete Tasks:** Remove tasks you no longer need.
+* **Add Tasks:** Quickly add new to-do items to your list. ✨
+* **Mark as Complete:** Toggle the status of tasks as complete or incomplete. ✅
+* **Delete Tasks:** Remove tasks you no longer need. 🗑️
 
 ### Getting Started
 
@@ -30,4 +30,4 @@ To use this application, you only need a web browser. There is no installation p
 
 ### Author
 
-* **ZippyPixel** - [GitHub Profile](https://github.com/ZippyPixel)
+* **ZippyPixel** - [GitHub Profile](https://github.com/ZippyPixel) 👨‍💻
