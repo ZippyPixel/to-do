@@ -1,4 +1,4 @@
-Vue.createApp({
+const app = Vue.createApp({
     data() {
         return {
             nightMode: false,
@@ -7,6 +7,17 @@ Vue.createApp({
             isSortByPending: false,
             newTask: '',
             tasks: []
+        }
+    },
+    watch: {
+        nightMode(newVal) {
+            document.body.classList.toggle('dark-mode', newVal);
+        }
+    },
+    mounted() {
+        document.body.classList.toggle('dark-mode', this.nightMode);
+        if (localStorage.tasks) {
+            this.tasks = JSON.parse(localStorage.getItem('tasks'));
         }
     },
     methods: {
@@ -34,13 +45,8 @@ Vue.createApp({
             }
             this.saveLocally(this.tasks);
         },
-        changeNightMode(){
+        changeNightMode() {
             this.nightMode = !this.nightMode;
-            if(this.nightMode){
-                document.body.style.background = '#1D263B';
-            } else {
-                document.body.style.background = '#ACCBE1';
-            }
         },
         saveLocally (tasks){
             localStorage.clear();
@@ -49,7 +55,6 @@ Vue.createApp({
             } else {
                 localStorage.tasks = this.tasks;
             }
-            console.log(localStorage.tasks);
         },
         getDateString(){
             const date  = new Date();
@@ -134,12 +139,5 @@ Vue.createApp({
     },
     computed: {
         
-    },
-    mounted() {
-        if (localStorage.tasks) {
-            this.tasks = JSON.parse(localStorage.getItem('tasks'));
-            console.log(this.tasks);
-            console.log(localStorage.tasks);
-        }
     },
 }).mount('#app')
