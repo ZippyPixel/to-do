@@ -23,56 +23,30 @@
   <body id="body">
     <div class="wrapper" id="app" v-cloak>
       <div class="header-area">
-        <h1 :class="{dark: nightMode}">to-do</h1>
+        <h1>to-do</h1>
         <i
-          @click="changeNightMode(index)"
-          :class="['fa-regular', {'fa-moon': !nightMode}, {'fa-sun': nightMode}, {'icon-dark': nightMode}]"
+          @click="changeNightMode()"
+          :class="['fa-regular', nightMode ? 'fa-sun' : 'fa-moon']"
         ></i>
       </div>
-      <form @submit.prevent="addTask" :class="{'dark': nightMode}">
+      <form @submit.prevent="addTask">
         <input type="text" v-model="newTask" placeholder="Enter task here" />
         <button type="submit">Add</button>
       </form>
       <div class="sort-area">
-        <p class="sort-by" :class="{'sort-by-dark': nightMode}">Sort by</p>
-        <div class="sort" :class="{'sort-dark': nightMode}">
-          <button
-            class="sort-date"
-            :class="{'sort-date-dark': nightMode}"
-            @click="sortByDate"
-          >
-            Date
-          </button>
-          <button
-            class="sort-done"
-            :class="{'sort-done-dark': nightMode}"
-            @click="sortByDone"
-          >
-            Done
-          </button>
-          <button
-            class="sort-pending"
-            :class="{'sort-pending-dark': nightMode}"
-            @click="sortByPending"
-          >
-            Pending
-          </button>
+        <p class="sort-by">Sort by</p>
+        <div class="sort">
+          <button class="sort-date" @click="sortByDate">Date</button>
+          <button class="sort-done" @click="sortByDone">Done</button>
+          <button class="sort-pending" @click="sortByPending">Pending</button>
         </div>
       </div>
       <ul>
-        <li
-          :class="{'dark': nightMode}"
-          v-for="(task, index) in tasks"
-          :key="index"
-        >
+        <li v-for="(task, index) in tasks" :key="index">
           <div class="wrapper">
             <div class="info-bar">
-              <p class="left date" :class="{'date-time-dark': nightMode}">
-                {{ task[1] }}
-              </p>
-              <p class="left date time" :class="{'date-time-dark': nightMode}">
-                {{ task[2] }}
-              </p>
+              <p class="left date">{{ task[1] }}</p>
+              <p class="left date time">{{ task[2] }}</p>
               <p
                 @click="changeStatus(index)"
                 :class="['right status pending', {done:task[3]=='done'}]"
@@ -80,18 +54,11 @@
                 {{task[3]}}
               </p>
             </div>
-            <div
-              :class="['details', {cut:task[3]=='done'}, {'details-dark': nightMode}, {'details-dark-cut': nightMode && task[3]=='done'}]"
-            >
+            <div :class="['details', {cut:task[3]=='done'}]">
               {{ task[0] }}
             </div>
           </div>
-          <button
-            @click="removeTask(index)"
-            :class="{'button-dark': nightMode}"
-          >
-            X
-          </button>
+          <button @click="removeTask(index)">X</button>
         </li>
       </ul>
     </div>

@@ -253,6 +253,39 @@ button.sort-done-dark {
 .sort-dark {
   color: rgba(255, 255, 255, 0.8);
 }
+
+/* ====================== NIGHT MODE (GLOBAL) ==================*/
+body.dark-mode {
+  background-color: #1D263B;
+  color: #A0EADE;
+}
+body.dark-mode h1,
+body.dark-mode .details,
+body.dark-mode .info-bar p,
+body.dark-mode .sort-area,
+body.dark-mode ul > li,
+body.dark-mode .date,
+body.dark-mode .status,
+body.dark-mode .sort > button {
+  color: #A0EADE;
+  background-color: inherit;
+  border-color: rgba(255,255,255,0.2);
+}
+body.dark-mode .pending {
+  background-color: #5C6784;
+}
+body.dark-mode .done {
+  background-color: #A0EADE;
+  color: #1D263B;
+}
+body.dark-mode .cut {
+  color: #5C6784;
+}
+body.dark-mode .sort > button:hover {
+  background-color: #A0EADE;
+  color: #1D263B;
+}
+
 /* ====================== MEDIA QUERIES (MOBILE) ==================*/
 
 @media screen and (max-width: 1024px) {
