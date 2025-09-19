@@ -49,7 +49,6 @@ Vue.createApp({
             } else {
                 localStorage.tasks = this.tasks;
             }
-            console.log(localStorage.tasks);
         },
         getDateString(){
             const date  = new Date();
@@ -138,8 +137,6 @@ Vue.createApp({
     mounted() {
         if (localStorage.tasks) {
             this.tasks = JSON.parse(localStorage.getItem('tasks'));
-            console.log(this.tasks);
-            console.log(localStorage.tasks);
         }
     },
 }).mount('#app')
