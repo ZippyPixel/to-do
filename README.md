@@ -1,42 +1,30 @@
-# To-Do App
+# Simple To-Do App
 
-This is a simple to-do list application built using Vue 3.
+This is a simple, client-side to-do list application built using Vue 3.
 
 ### Features
 
-* **Add Tasks:** Easily add new tasks to your list.
-* **Mark as Complete:** Check off tasks once they are done.
-* **Delete Tasks:** Remove unwanted tasks from the list.
+* **Add Tasks:** Quickly add new to-do items to your list.
+* **Mark as Complete:** Toggle the status of tasks as complete or incomplete.
+* **Delete Tasks:** Remove tasks you no longer need.
 
 ### Getting Started
 
-To get a copy of the project up and running on your local machine, follow these simple steps.
+To use this application, you only need a web browser. There is no installation process required.
 
 1.  **Clone the repository:**
     ```bash
     git clone [https://github.com/ZippyPixel/to-do.git](https://github.com/ZippyPixel/to-do.git)
     ```
 
-2.  **Navigate to the project directory:**
-    ```bash
-    cd to-do
-    ```
-
-3.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-4.  **Run the application:**
-    ```bash
-    npm run dev
-    ```
+2.  **Open the file:**
+    Navigate to the project directory and double-click the `index.html` file to open it in your preferred web browser.
 
 ### Technologies Used
 
-* **Vue 3** - The JavaScript framework used to build the user interface.
-* **Vite** - The build tool that provides a fast development experience.
-* **HTML, CSS, JavaScript** - Core web technologies.
+* **HTML:** For the structure of the application.
+* **CSS:** For styling the user interface.
+* **JavaScript:** For the application logic, including the Vue 3 framework.
 
 ---
 
